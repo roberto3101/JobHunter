@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS | Cyberpunk Job Hunter 2077</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com;">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Canvas 3D Background -->
+    <canvas id="bg-canvas"></canvas>
+    
+    <!-- Particle System -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Glitch Overlay -->
+    <div class="glitch-overlay"></div>
+    
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Header with Glitch Effect -->
+        <div class="header-section">
+            <h1 class="glitch-text" data-text="NEXUS_JOB.HUNTER">
+                <span class="glitch-text-main">NEXUS_JOB.HUNTER</span>
+            </h1>
+            <div class="subtitle cyber-text">
+                <span class="typing-text">SISTEMA DE POSTULACIÓN AUTOMATIZADA v2.077</span>
+                <span class="cursor">_</span>
+            </div>
+            <div class="status-bar">
+                <div class="status-item">
+                    <span class="status-label">STATUS:</span>
+                    <span class="status-value online">ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">CONEXIÓN:</span>
+                    <span class="status-value">SECURE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">MODO:</span>
+                    <span class="status-value">STEALTH</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Neural Interface Panel -->
+        <div class="panel cyber-panel" id="neural-interface">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <span class="icon">◈</span>
+                    INTERFAZ NEURAL
+                </div>
+                <div class="panel-status">
+                    <span class="pulse"></span>
+                    SINCRONIZADO
+                </div>
+            </div>
+            <div class="panel-content">
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <label class="cyber-label">IDENTIFICACIÓN</label>
+                        <input type="text" id="nombre" class="cyber-input" placeholder="[NOMBRE_COMPLETO]">
+                        <div class="input-line"></div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label class="cyber-label">CORREO_DIGITAL</label>
+                        <input type="email" id="email" class="cyber-input" placeholder="[EMAIL@NEXUS.NET]">
+                        <div class="input-line"></div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label class="cyber-label">COMM_LINK</label>
+                        <input type="tel" id="telefono" class="cyber-input" placeholder="[+51_XXX_XXX_XXX]">
+                        <div class="input-line"></div>
+                    </div>
+                </div>
+                <div class="data-grid">
+                    <div class="data-cell">
+                        <span class="data-label">NIVEL_ACCESO:</span>
+                        <span class="data-value">PLATINUM</span>
+                    </div>
+                    <div class="data-cell">
+                        <span class="data-label">CRÉDITOS:</span>
+                        <span class="data-value">∞</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Matrix Panel -->
+        <div class="panel cyber-panel" id="search-matrix">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <span class="icon">⬡</span>
+                    MATRIZ DE BÚSQUEDA
+                </div>
+                <div class="panel-status scanning">
+                    <span class="pulse"></span>
+                    ESCANEANDO
+                </div>
+            </div>
+            <div class="panel-content">
+                <div class="search-wrapper">
+                    <div class="search-field">
+                        <input type="text" id="palabras-clave" class="cyber-search" placeholder="[INGRESE_PARÁMETROS_DE_BÚSQUEDA]">
+                        <div class="search-line"></div>
+                    </div>
+                    <button id="btn-buscar" class="cyber-button">
+                        <span class="button-text">INICIAR_ESCANEO</span>
+                        <div class="button-bg"></div>
+                    </button>
+                </div>
+                <div class="search-tags">
+                    <span class="tag" data-tag="React">React</span>
+                    <span class="tag" data-tag="Node.js">Node.js</span>
+                    <span class="tag" data-tag="Python">Python</span>
+                    <span class="tag" data-tag="AI/ML">AI/ML</span>
+                    <span class="tag" data-tag="Blockchain">Blockchain</span>
+                    <span class="tag" data-tag="Cybersecurity">Cybersecurity</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Terminal -->
+        <div class="panel cyber-panel terminal" id="results-terminal">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <span class="icon">▣</span>
+                    TERMINAL_DE_RESULTADOS
+                </div>
+                <div class="panel-status">
+                    <span class="pulse"></span>
+                    <span id="result-count">0</span> OBJETIVOS
+                </div>
+            </div>
+            <div class="panel-content">
+                <div class="terminal-header">
+                    <span class="terminal-prompt">&gt; nexus@job-hunter:~$</span>
+                    <span class="terminal-command">scan --deep --all-sectors</span>
+                </div>
+                <div id="loader" class="cyber-loader hidden">
+                    <div class="loader-text">ESCANEANDO_SECTORES...</div>
+                    <div class="loader-bar">
+                        <div class="loader-progress"></div>
+                    </div>
+                    <div class="loader-data">
+                        <span>ANALIZANDO:</span>
+                        <span class="analyzing-text">SECTOR_01</span>
+                    </div>
+                </div>
+                <div id="lista-ofertas" class="terminal-output">
+                    <div class="terminal-line">
+                        <span class="terminal-time">[00:00:00]</span>
+                        <span class="terminal-message">Sistema iniciado. Esperando comandos...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HUD Elements -->
+        <div class="hud-top-left">
+            <div class="hud-element">
+                <span class="hud-label">FECHA:</span>
+                <span class="hud-value" id="current-date">2077.12.10</span>
+            </div>
+            <div class="hud-element">
+                <span class="hud-label">TIEMPO:</span>
+                <span class="hud-value" id="current-time">00:00:00</span>
+            </div>
+        </div>
+
+        <div class="hud-top-right">
+            <div class="hud-element">
+                <span class="hud-label">CPU:</span>
+                <span class="hud-value">87%</span>
+            </div>
+            <div class="hud-element">
+                <span class="hud-label">RAM:</span>
+                <span class="hud-value">4.2GB</span>
+            </div>
+        </div>
+
+        <!-- Floating UI Elements -->
+        <div class="floating-menu">
+            <button class="float-btn" id="theme-toggle">
+                <span class="float-icon">◉</span>
+            </button>
+            <button class="float-btn" id="sound-toggle">
+                <span class="float-icon">♫</span>
+            </button>
+            <button class="float-btn" id="effects-toggle">
+                <span class="float-icon">✦</span>
+            </button>
+        </div>
+
+        <!-- Scan Lines Effect -->
+        <div class="scan-lines"></div>
+        
+        <!-- Rain Effect -->
+        <div class="rain-container" id="rain"></div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="ambient-sound" loop>
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="./cyberpunk-scene.js"></script>
+    <script src="./renderer.js"></script>
+</body>
+</html>

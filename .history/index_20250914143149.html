@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Asistente de Postulación de Empleo</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Asistente de Postulación</h1>
+        <p>Automatiza la búsqueda de empleos y el llenado de formularios para que solo te preocupes por enviar.</p>
+
+        <div class="card" id="configuracion">
+            <h2>Paso 1: Tus Datos</h2>
+            <p>Ingresa la información que se usará para autocompletar los formularios.</p>
+            <div class="form-grid">
+                <input type="text" id="nombre" placeholder="Nombre Completo">
+                <input type="email" id="email" placeholder="Correo Electrónico">
+                <input type="tel" id="telefono" placeholder="Teléfono (ej: +51987654321)">
+            </div>
+        </div>
+
+        <div class="card" id="busqueda">
+            <h2>Paso 2: Buscar Ofertas</h2>
+            <div class="search-container">
+                <input type="text" id="palabras-clave" placeholder="Ej: React, Node.js, Frontend...">
+                <button id="btn-buscar">Buscar Empleos</button>
+            </div>
+        </div>
+
+        <div class="card" id="resultados">
+            <h2>Paso 3: Postular</h2>
+            <div id="loader" class="hidden">Buscando... ⏳</div>
+            <div id="lista-ofertas">
+                <p>Aquí aparecerán los resultados de tu búsqueda.</p>
+            </div>
+        </div>
+    </div>
+    <script src="./renderer.js"></script>
+</body>
+</html>

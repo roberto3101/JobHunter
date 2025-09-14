@@ -1,0 +1,22 @@
+{
+  "name": "mi-asistente-de-empleo",
+  "version": "1.0.0",
+  "description": "Asistente para automatizar la búsqueda y postulación de empleos.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dat.gui": "^0.7.9",
+    "electron": "^38.1.0",
+    "google-search-results-nodejs": "^2.1.0",
+    "gsap": "^3.13.0",
+    "puppeteer": "^24.20.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "three": "^0.180.0"
+  }
+}
